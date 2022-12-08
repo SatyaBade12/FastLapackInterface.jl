@@ -37,5 +37,10 @@ include("workspace.jl")
 export Workspace
 export decompose!, factorize!
 
+import SnoopPrecompile
+SnoopPrecompile.@precompile_all_calls begin
+  include("../test/runtests.jl")
+end
+
 end #module
 #import LinearAlgebra: USE_BLAS64, LAPACKException
