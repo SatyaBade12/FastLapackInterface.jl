@@ -91,7 +91,7 @@ Base.length(ws::SchurWs) = length(ws.wr)
 for (gees, elty) in ((:dgees_, :Float64),
                      (:sgees_, :Float32))
     @eval begin
-        function Base.resize!(ws::SchurWs, A::AbstractMatrix{$elty}; work=true)
+        function Base.resize!(ws::SchurWs{$elty}, A::AbstractMatrix{$elty}; work=true)
             require_one_based_indexing(A)
             chkstride1(A)
             n     = checksquare(A)
