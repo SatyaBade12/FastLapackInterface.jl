@@ -120,7 +120,7 @@ for (gees, elty) in ((:dgees_, :Float64),
         end
             
         SchurWs(A::AbstractMatrix{$elty}) =
-            resize!(SchurWs(Vector{$elty}(undef, 1), $elty[], $elty[], Matrix{$elty}(undef, 0, 0), Ref{BlasInt}(), BlasInt[], Complex{$elty}[]), A) 
+            resize!(SchurWs{$elty}(Vector{$elty}(undef, 1), $elty[], $elty[], Matrix{$elty}(undef, 0, 0), Ref{BlasInt}(), BlasInt[], Complex{$elty}[]), A) 
 
         function gees!(ws::SchurWs{$elty}, jobvs::AbstractChar,
                        A::AbstractMatrix{$elty};
